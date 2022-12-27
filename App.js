@@ -6,16 +6,11 @@ import ViewImageScreen from './src/screens/ViewImageScreen';
 import MessagesScreen from './src/screens/MessagesScreen';
 import Icon from './src/components/Icon';
 import ListItem from './src/components/ListItem';
+import AccountsScreen from './src/screens/AccountsScreen';
 
 export default function App() {
   return (
-    <Screen>
-      <ListItem
-        title={'My Title'}
-        // subTitle={'my sub'}
-        ImageComponent={<Icon name='email' />}
-      />
-    </Screen>
+    <AccountsScreen />
   );
 }
 
