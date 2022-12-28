@@ -1,13 +1,9 @@
-import { Formik } from "formik";
 import React from "react";
-import { Image, StyleSheet, TouchableNativeFeedback } from "react-native";
-import AppButton from "../components/AppButton";
-import AppTextInput from "../components/AppTextInput";
-import Screen from "../components/Screen";
-import AppText from "../components/AppText";
+import { Image, StyleSheet } from "react-native";
 import * as Yup from 'yup';
-import ErrorMessage from "../components/ErrorMessage";
+import AppForm from "../components/AppForm";
 import AppFormField from "../components/AppFormField";
+import Screen from "../components/Screen";
 import SubmitButton from "../components/SubmitButton";
 
 
