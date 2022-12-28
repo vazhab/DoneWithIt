@@ -13,31 +13,11 @@ import AppTextInput from './src/components/AppTextInput'
 import colors from './src/config/colors';
 import { Switch } from 'react-native';
 import AppPicker from './src/components/AppPicker';
+import LoginScreen from './src/screens/LoginScreen';
 
-const categories = [
-  { label: 'Furniture', value: 1 },
-  { label: 'Clothing', value: 2 },
-  { label: 'Cameras', value: 3 },
-]
 
 export default function App() {
-
-  const [category, setCategory] = useState();
-
-  return (
-    <Screen>
-      <AppPicker
-        selectedItem={category}
-        onSelectItem={item => setCategory(item)}
-        items={categories}
-        icon={"apps"}
-        placeholder={"Categories"}
-      />
-      <AppTextInput
-        icon={"email"}
-        placeholder='Email' />
-    </Screen>
-  );
+  return <LoginScreen />;
 }
 
 const styles = StyleSheet.create({
