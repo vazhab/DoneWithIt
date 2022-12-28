@@ -22,10 +22,4 @@ function AppFormField({ name, ...otherProps }) {
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        padding: 10,
-    },
-});
-
 export default AppFormField;
