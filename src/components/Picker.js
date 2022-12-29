@@ -1,13 +1,11 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React, { useState } from "react";
-import { Button, Modal, StyleSheet, TextInput, View } from "react-native";
-import colors from "../config/colors";
+import { Button, FlatList, Modal, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 import defaultStyles from '../config/styles';
-import AppText from './Text';
-import { TouchableWithoutFeedback } from 'react-native';
-import Screen from './Screen';
-import { FlatList } from 'react-native-gesture-handler';
 import PickerItem from './PickerItem';
+import Screen from './Screen';
+import AppText from './Text';
 
 function AppPicker({ icon, items, onSelectItem, numberOfColumns = 1, PickerItemComponent = PickerItem, placeholder, selectedItem, ...otherProps }) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -16,10 +14,24 @@ function AppPicker({ icon, items, onSelectItem, numberOfColumns = 1, PickerItemC
         <>
             <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
                 <View style={styles.container}>
-                    {icon && <MaterialCommunityIcons name={icon} size={20} color={colors.medium} style={styles.icon} />}
-                    <TextInput style={defaultStyles.text} {...otherProps} />
-                    {selectedItem ? <AppText style={styles.text}>{placeholder}</AppText> : <AppText style={styles.placeholder}>{placeholder}</AppText>}
-                    <MaterialCommunityIcons name={'chevron-down'} size={20} color={colors.medium} />
+                    {icon && (
+                        <MaterialCommunityIcons
+                            name={icon}
+                            size={20}
+                            color={defaultStyles.colors.medium}
+                            style={styles.icon}
+                        />
+                    )}
+                    {selectedItem ? (
+                        <AppText style={styles.text}>{placeholder}</AppText>
+                    ) : (
+                        <AppText style={styles.placeholder}>{placeholder}</AppText>
+                    )}
+
+                    <MaterialCommunityIcons
+                        name={'chevron-down'}
+                        size={20}
+                        color={defaultStyles.colors.medium} />
                 </View>
             </TouchableWithoutFeedback>
             <Modal visible={modalVisible} animationType='slide'>
@@ -48,13 +60,11 @@ function AppPicker({ icon, items, onSelectItem, numberOfColumns = 1, PickerItemC
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.light,
+        backgroundColor: defaultStyles.colors.light,
         borderRadius: 25,
         flexDirection: "row",
-        width: '100%',
         padding: 15,
-        marginVertical: 20,
-        alignItems: 'center',
+        marginVertical: 10,
     },
     icon: {
         marginRight: 10,

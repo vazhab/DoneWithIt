@@ -14,7 +14,6 @@ function PickerItem({item, onPress }) {
 const styles = StyleSheet.create({
     text: {
         padding: 20,
-
     }
 })
 
