@@ -18,6 +18,7 @@ import RegisterScreen from './src/screens/RegisterScreen'
 import ListingEditScreen from './src/screens/ListingEditScreen';
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
+import ImageInput from './src/components/ImageInput';
 
 export default function App() {
   const [imageUri, setImageUri] = useState();
@@ -44,10 +45,13 @@ export default function App() {
     }
   }
 
-  return <Screen>
-    <Button title='Select Image' onPress={selectImage} />
-    {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />}
-  </Screen>
+  return (
+    <ImageInput />
+    // <Screen>
+    //   <Button title='Select Image' onPress={selectImage} />
+    //   {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />}
+    // </Screen>
+  );
 }
 
 const styles = StyleSheet.create({
