@@ -15,10 +15,11 @@ import { Switch } from 'react-native';
 import AppPicker from './src/components/AppPicker';
 import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen'
+import ListingEditScreen from './src/screens/ListingEditScreen';
 
 
 export default function App() {
-  return <RegisterScreen />;
+  return <ListingEditScreen />;
 }
 
 const styles = StyleSheet.create({
