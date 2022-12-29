@@ -19,7 +19,7 @@ import ListingEditScreen from './src/screens/ListingEditScreen';
 
 
 export default function App() {
-  return <MessagesScreen />
+  return <ListingEditScreen />
 }
 
 const styles = StyleSheet.create({
