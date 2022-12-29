@@ -16,11 +16,10 @@ function ListItem({ title, image, subTitle, IconComponent, onPress, renderRightA
                         {IconComponent}
                         {image && <Image style={styles.image} source={image} />}
                         <View style={styles.detailsContainer}>
-                            <AppText style={styles.title}>{title}</AppText>
-                            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+                            <AppText style={styles.title} numberOfLines={1}>{title}</AppText>
+                            {subTitle && <AppText style={styles.subTitle} numberOfLines={2}>{subTitle}</AppText>}
                         </View>
-                        {showShevron ? <MaterialCommunityIcons name={"chevron-right"} size={25} color={colors.medium}/> : null}
-                        
+                        {showShevron ? <MaterialCommunityIcons name={"chevron-right"} size={25} color={colors.medium} /> : null}
                     </View>
                 </TouchableHighlight>
             </Swipeable></GestureHandlerRootView>

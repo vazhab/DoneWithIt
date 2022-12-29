@@ -8,8 +8,8 @@ import Screen from "../components/Screen";
 const initialMessages = [
     {
         id: 1,
-        title: 'T1',
-        description: 'D1',
+        title: 'T11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111',
+        description: 'D111111111111111111111111111111111111111111111111111111111111111111111111111111111111111',
         image: require('../../assets/user.png')
     },
     {
