@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Button, Image } from 'react-native';
 import Screen from './src/components/Screen';
 import ListingDetailsScreen from './src/screens/ListingDetailsScreen';
 import ViewImageScreen from './src/screens/ViewImageScreen';
@@ -20,6 +20,7 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 
 export default function App() {
+  const [imageUri, setImageUri] = useState();
 
   const requestPermission = async () => {
     const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync()
@@ -32,8 +33,21 @@ export default function App() {
     requestPermission();
   }, [])
 
-  return <RegisterScreen />
-  //<Screen></Screen>
+  const selectImage = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync();
+      if (!result.canceled) {
+        setImageUri(result.assets[0].uri)
+      }
+    } catch (error) {
+      console.log('Error reading an Image', error);
+    }
+  }
+
+  return <Screen>
+    <Button title='Select Image' onPress={selectImage} />
+    {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />}
+  </Screen>
 }
 
 const styles = StyleSheet.create({
