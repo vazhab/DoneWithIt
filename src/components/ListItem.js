@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
 import { Swipeable, GestureHandlerRootView } from 'react-native-gesture-handler';
 import colors from "../config/colors";
-import AppText from "./AppText";
+import AppText from "./Text";
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 function ListItem({ title, image, subTitle, IconComponent, onPress, renderRightActions, showShevron }) {
