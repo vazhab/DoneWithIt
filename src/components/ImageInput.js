@@ -1,35 +1,40 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 
 import defaultStyles from '../config/styles'
 import Screen from './Screen';
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import Icon from './Icon';
+import colors from '../config/colors';
 
-const ImageInput = ({ }) => {
+function ImageInput({ imageUri }) {
   return (
     <View style={styles.container}>
-      <Icon
-        style={styles.icon}
-        name="camera"
-        size={80}
-        backgroundColor={defaultStyles.colors.light}
-        iconColor={defaultStyles.colors.medium}
-      />
+      {!imageUri && (
+        <MaterialCommunityIcons
+          color={colors.medium}
+          name="camera"
+          size={40}
+        />
+      )}
+      {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
-    width: 80,
-    height: 80,
+    alignItems: 'center',
+    width: 100,
+    height: 100,
     backgroundColor: defaultStyles.colors.light,
     justifyContent: 'center',
-    borderRadius: 20
+    borderRadius: 15,
+    overflow: 'hidden',
   },
-  icon: {
-    alignSelf: 'center',
+  image: {
+    width: '100%',
+    height: '100%',
   }
 });
 
