@@ -1,3 +1,4 @@
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import MessagesScreen from '../screens/MessagesScreen';
 import AccountScreen from '../screens/AccountsScreen'

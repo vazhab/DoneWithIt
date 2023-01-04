@@ -23,13 +23,15 @@ const menuItems = [
   }
 ]
 
-function ViewImageScreen({ navigation }) {
+function AccountScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
-        <ListItem title='William Marshal' subTitle='test@test.com' image={require('../../assets/user.png')} />
+        <ListItem
+          title='William Marshal'
+          subTitle='test@test.com'
+          image={require('../../assets/user.png')} />
       </View>
-
       <View style={styles.container}>
         <FlatList
           data={menuItems}
@@ -65,4 +67,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ViewImageScreen;
+export default AccountScreen;

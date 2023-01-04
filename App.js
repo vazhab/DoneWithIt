@@ -7,7 +7,7 @@ import navigationTheme from "./src/navigation/navigationTheme";
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AppNavigator headerShown={false}/>
+      <AppNavigator/>
     </NavigationContainer>
   );
 }
