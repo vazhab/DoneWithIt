@@ -1,41 +1,33 @@
 import React, { useEffect, useState } from "react";
 import Screen from "../components/Screen";
-import { ActivityIndicator, FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import Card from '../components/Card';
 import colors from "../config/colors";
 import routes from "../navigation/routes";
 import listingsApi from "../api/listings"
 import AppText from "../components/Text";
 import Button from "../components/Button";
+import ActivityIndicator from '../components/ActivityIndicator';
+import useApi from "../hooks/useApi";
 
 function ListingsScreen({ navigation }) {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const getListingsApi = useApi(
+    listingsApi.getListings
+  );
 
   useEffect(() => {
-    loadListings();
+    getListingsApi.request(1, 2, 3);
   }, []);
-
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    if (!response.ok) { return setError(true); }
-    setLoading(false);
-
-    setError(false);
-    setListings(response.data);
-  };
 
   return (
     <Screen style={styles.screen}>
-      {error && <>
+      {getListingsApi.error && <>
         <AppText>Couldn't retreive the listings</AppText>
         <Button title="Retry" onPress={loadListings} />
       </>}
-<ActivityIndicator animating={loading} size={'large'}/>
+      <ActivityIndicator visible={getListingsApi.loading} />
       <FlatList
-        data={listings}
+        data={getListingsApi.data}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) =>
           <Card
