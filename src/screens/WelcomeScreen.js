@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageBackground, View, Text, StyleSheet, Image } from 'react-native';
 
-import AppButton from "../components/Button";
+import Button from "../components/Button";
 
 const WelcomeScreen = ({ navigation }) => {
   return (
@@ -16,10 +16,10 @@ const WelcomeScreen = ({ navigation }) => {
         <Text style={styles.tagline}>Sell what you don't need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton
+        <Button
           title={'login'}
           onPress={() => navigation.navigate("Login")} />
-        <AppButton
+        <Button
           title={'register'}
           onPress={() => navigation.navigate("Register")}
           color='secondary' />
